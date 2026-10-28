@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bus pass application and transport management system">
+  <title>BusPass | Transport Management</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">B</span><span>BusPass<small>TRANSPORT MANAGEMENT</small></span></a>
+    <nav><button class="nav-btn active" data-view="home">Home</button><button class="nav-btn" data-view="apply">Apply for Pass</button><button class="nav-btn" data-view="dashboard">Dashboard</button></nav>
+    <div class="account" id="accountArea"><button class="btn btn-outline" id="openLogin">Log in</button><button class="btn btn-primary" id="openSignup">Get started</button></div>
+  </header>
+  <main>
+    <section id="homeView" class="view">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="dot"></span> SMARTER DAILY TRAVEL</span>
+          <h1>Your journey.<br><span>One simple pass.</span></h1>
+          <p>Apply for a bus pass online, track its status, and keep your travel details in one convenient place.</p>
+          <div class="hero-actions"><button class="btn btn-primary btn-large" data-view="apply">Apply for a bus pass <span>→</span></button><button class="btn btn-quiet btn-large" data-view="dashboard">View dashboard</button></div>
+          <div class="trust-row"><span>✓ Easy online application</span><span>✓ Status tracking</span><span>✓ Less paperwork</span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a bus travelling on a road">
+          <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="route-line"></div><div class="road"></div>
+          <div class="bus"><div class="bus-sign">CITY BUS</div><div class="bus-windows"><i></i><i></i><i></i></div><div class="bus-door"></div><div class="bus-wheel wheel-one"></div><div class="bus-wheel wheel-two"></div></div>
+          <div class="location-pin pin-one">●</div><div class="location-pin pin-two">●</div>
+          <div class="floating-card"><span class="mini-icon">✓</span><div><b>Pass application</b><small>Simple & convenient</small></div></div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-icon blue">↗</span><div><b>Apply online</b><p>Submit your travel details anytime.</p></div></article>
+        <article class="stat-card"><span class="stat-icon mint">◷</span><div><b>Track your status</b><p>Know if your application is pending, approved, or rejected.</p></div></article>
+        <article class="stat-card"><span class="stat-icon orange">▣</span><div><b>Keep records together</b><p>View your route and pass details in one place.</p></div></article>
+      </div>
+      <section class="how-section"><div><span class="eyebrow">HOW IT WORKS</span><h2>Three steps to get moving</h2></div><div class="steps"><article><span>01</span><h3>Create an account</h3><p>Register with your name and email address.</p></article><article><span>02</span><h3>Submit your application</h3><p>Choose your route and pass type, then send your request.</p></article><article><span>03</span><h3>Track the decision</h3><p>Check your dashboard for the latest status.</p></article></div></section>
+    </section>
+    <section id="authView" class="view hidden"><div class="auth-layout"><div class="auth-aside"><span class="eyebrow">WELCOME TO BUSPASS</span><h2>Travel planning, made simpler.</h2><p>Manage your application without standing in long queues.</p><div class="auth-mini">🚍 <span>One dashboard for your bus pass journey</span></div></div><form id="authForm" class="panel auth-panel"><div class="panel-heading"><span class="eyebrow" id="authEyebrow">YOUR ACCOUNT</span><h2 id="authTitle">Welcome back</h2><p id="authSubtitle">Log in to continue to your dashboard.</p></div><div id="signupNameWrap" class="field hidden"><label for="authName">Full name</label><input id="authName" autocomplete="name" maxlength="80" placeholder="e.g. Dishitha Tallapaneni"></div><div class="field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></div><div class="field"><label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters"></div><div id="authMessage" class="message hidden" role="status"></div><button class="btn btn-primary btn-full" id="authSubmit" type="submit">Log in</button><p class="auth-switch" id="authSwitch">New here? <button type="button" class="text-button" id="switchAuth">Create an account</button></p><button type="button" class="text-button back-home" data-view="home">← Back to home</button></form></div></section>
+    <section id="applyView" class="view hidden"><div class="page-heading"><span class="eyebrow">BUS PASS REQUEST</span><h1>Apply for a bus pass</h1><p>Enter your details and travel route. You must log in before submitting an application.</p></div><div class="form-layout"><form id="applicationForm" class="panel form-panel"><h2>Travel details</h2><p class="muted">Fields marked * are required.</p><div class="form-grid"><div class="field"><label for="applicantName">Full name *</label><input id="applicantName" required maxlength="100" placeholder="Your full name"></div><div class="field"><label for="applicantPhone">Phone number *</label><input id="applicantPhone" required inputmode="tel" pattern="[0-9+\-\s()]{7,20}" maxlength="20" placeholder="10-digit phone number"></div><div class="field"><label for="passType">Pass type *</label><select id="passType" required><option value="">Select pass type</option><option value="Student">Student</option><option value="General">General</option><option value="Monthly">Monthly</option></select></div><div class="field"><label for="travelStart">Starting point *</label><input id="travelStart" required maxlength="120" placeholder="e.g. Kukatpally"></div><div class="field"><label for="travelEnd">Destination *</label><input id="travelEnd" required maxlength="120" placeholder="e.g. College / Secunderabad"></div><div class="field"><label for="travelDate">Requested start date *</label><input id="travelDate" type="date" required></div><div class="field full"><label for="applicantAddress">Address *</label><textarea id="applicantAddress" rows="3" required maxlength="400" placeholder="Enter your current address"></textarea></div></div><div id="applyMessage" class="message hidden" role="status"></div><button class="btn btn-primary" type="submit">Submit application <span>→</span></button></form><aside class="panel checklist"><span class="check-icon">✓</span><h3>Before you submit</h3><ul><li>Check your name and phone number.</li><li>Enter the correct start and destination points.</li><li>Choose a start date that is today or later.</li><li>Track the application from your dashboard.</li></ul><div class="notice">Demo note: this project records applications; it does not issue a real government or transport-authority pass.</div></aside></div></section>
+    <section id="dashboardView" class="view hidden"><div class="dashboard-head"><div class="page-heading"><span class="eyebrow">YOUR SPACE</span><h1 id="dashboardTitle">Dashboard</h1><p id="dashboardSubtitle">Manage your bus pass applications.</p></div><button class="btn btn-primary" data-view="apply">+ New application</button></div><div id="dashboardMessage" class="message hidden" role="status"></div><div id="adminSummary" class="stats-grid hidden"></div><div class="panel table-panel"><div class="table-heading"><div><h2 id="tableTitle">My applications</h2><p class="muted">Your latest applications and their current status.</p></div><div class="table-tools"><input id="searchApplications" placeholder="Search route or name..." aria-label="Search applications"><select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Pending</option><option>Approved</option><option>Rejected</option></select></div></div><div class="table-wrap"><table><thead><tr><th>Applicant / Route</th><th>Pass type</th><th>Start date</th><th>Applied on</th><th>Status</th><th id="actionHeader">Action</th></tr></thead><tbody id="applicationsBody"><tr><td colspan="6" class="empty-cell">Log in to see your applications.</td></tr></tbody></table></div></div><p class="footnote" id="adminHint"></p></section>
+    <section id="notFoundView" class="view hidden"><div class="empty-state"><h2>That page isn't available</h2><button class="btn btn-primary" data-view="home">Return home</button></div></section>
+  </main>
+  <footer><div class="footer-brand"><span class="brand-mark">B</span><b>BusPass</b></div><p>A student project for simpler bus pass applications and transport management.</p><span>© <span id="year"></span> BusPass Project</span></footer>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <dialog id="confirmDialog" class="confirm-dialog"><form method="dialog"><h3 id="confirmTitle">Please confirm</h3><p id="confirmText">Are you sure?</p><div class="dialog-actions"><button class="btn btn-outline" value="cancel">Cancel</button><button class="btn btn-danger" id="confirmOk" value="confirm">Confirm</button></div></form></dialog>
+</body>
+</html>
